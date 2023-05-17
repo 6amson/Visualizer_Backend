@@ -1,0 +1,23 @@
+{
+  "name": "visualizer_backend",
+  "version": "1.0.0",
+  "description": "Backend server for account statement visualizer. Takes a pdf and parses it, representing it as client friendly ui.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6amson/Visualizer_Backend.git"
+  },
+  "author": "Bunmi Samson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6amson/Visualizer_Backend/issues"
+  },
+  "homepage": "https://github.com/6amson/Visualizer_Backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
