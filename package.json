@@ -18,6 +18,11 @@
   "homepage": "https://github.com/6amson/Visualizer_Backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "pdfjs-dist": "^3.6.172",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }
