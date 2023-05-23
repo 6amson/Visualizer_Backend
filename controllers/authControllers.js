@@ -31,15 +31,12 @@ const pdfPath = "./assets/accountt.pdf";
         }
     ];
 
-    //Get position y of all text content, which is the row
-
-
-
-
-
-
-    // define a reg expression to match Date string
+    // define reg expressions to match the header strings
     const patternDate = /^Date$/;
+    const patternDetails = /[Dd]etail(s)?/;
+    const patternWithdrawal = /^([Ww]ithdrawal(s)?|[Dd]ebit(s)?)$/;
+    const patternLodgement = /^([Ll]odgement(s)?|[Cc]redit(s)?)$/;
+    const patternBalance = /^[Bb]alance(s)?$/;
 
     const test1 = textContent.items.filter((item) => {
         const matchDate = patternDate.test(item.str);
@@ -49,19 +46,57 @@ const pdfPath = "./assets/accountt.pdf";
         }
     });
 
+    //get the Y(row) coordinate of Date string.
     const datePositionY = test1[0].transform[5];
 
+    const test2 = textContent.items.filter((item) => {
+        const matchDate = patternDetails.test(item.str);
+
+        if (matchDate && item.transform[5] == datePositionY) {
+            return item;
+        }
+    });
+
+    const test3 = textContent.items.filter((item) => {
+        const matchDate = patternWithdrawal.test(item.str);
+
+        if (matchDate && item.transform[5] == datePositionY) {
+            return item;
+        }
+    });
+
+    const test4 = textContent.items.filter((item) => {
+        const matchDate = patternLodgement.test(item.str);
+
+        if (matchDate && item.transform[5] == datePositionY) {
+            return item;
+        }
+    });
+
+    const test5 = textContent.items.filter((item) => {
+        const matchDate = patternBalance.test(item.str);
+
+        if (matchDate && item.transform[5] == datePositionY) {
+            return item;
+        }
+    });
+
+    //get the X coordinates, which is the column of each heading 
+    const dateX = test1[0].transform[4];;
+    const detailX = test2[0].transform[4];
+    const withdrawalX = test3[0].transform[4];
+    const lodgementX = test4[0].transform[4];
+    const balanceX = test5[0].transform[4];
+
+    
+
+    //initialise an array for each column of data to be extracted
     let rawPositionY = [];
     let finalDetail = [];
     let finalDate = [];
     let finalWithdrawal = [];
     let finalLodgement = [];
     let finalBalance = [];
-    const dateX = 38.25;
-    const detailX = 104.11;
-    const withdrawalX = 426.7;
-    const lodgementX = 472.13;
-    const balanceX = 517.72;
 
     textContent.items.forEach((item, index, arr) => {
         // console.log(item);
@@ -108,7 +143,7 @@ const pdfPath = "./assets/accountt.pdf";
     });
 
 
-    console.log(finalBalance);
+    console.log(finalDetail);
     console.log("Number of Pages: " + numPages);
 
 
