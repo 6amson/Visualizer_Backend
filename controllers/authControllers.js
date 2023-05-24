@@ -21,15 +21,15 @@ const pdfPath = "./assets/accountt.pdf";
 
     // console.log(textContent.items);
 
-    const schemaRaw = [
-        {
-            date: '',
-            details: '',
-            debit: '',
-            credit: '',
-            balance: '',
-        }
-    ];
+    // const schemaRaw = [
+    //     {
+    //         date: '',
+    //         details: '',
+    //         debit: '',
+    //         credit: '',
+    //         balance: '',
+    //     }
+    // ];
 
     // define reg expressions to match the header strings
     const patternDate = /^Date$/;
